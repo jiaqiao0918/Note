@@ -4,12 +4,13 @@ import java.util.Arrays;
 
 public class RGB_HSB {
 	public static void main(String[] args) {
-		int[] rgb = toRGB("#c9c9c9");
+		int[] rgb = toRGB("#ffffff");
 		float[] hsb = RGBToHVB(rgb);
 		for (int i = 0; i < hsb.length; i++) {
 			// HSV(Hue色相、Saturation饱和度、Value(Brightness)明度，也叫HSB)
 			System.out.println(hsb[i]);
 		}
+		System.out.println(isLightColor(rgb));
 	}
 
 	public static int[] toRGB(String str) {
@@ -62,7 +63,7 @@ public class RGB_HSB {
 		return null;
 	}
 
-	public static int[] HSBToRGB(float[] hsv) {
+	public static int[] HBSToRGB(float[] hsv) {
 		float h, s, v;
 		h = hsv[0];
 		s = hsv[1];
@@ -113,5 +114,17 @@ public class RGB_HSB {
 		}
 		return new int[] { (int) (r * 255.0), (int) (g * 255.0),
 				(int) (b * 255.0) };
+	}
+
+	public static boolean isLightColor(int[] rgb) {
+		if (rgb.length == 3) {
+			int R = rgb[0];
+			int G = rgb[1];
+			int B = rgb[2];
+			double grayLevel = R * 0.299 + G * 0.587 + B * 0.114;
+			return grayLevel >= 192 ? true : false;
+		} else {
+			return false;
+		}
 	}
 }
