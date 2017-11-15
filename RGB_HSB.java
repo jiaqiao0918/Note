@@ -62,7 +62,7 @@ public class RGB_HSB {
 		return null;
 	}
 
-	public static int[] hsb2rgb(float[] hsv) {
+	public static int[] HSBToRGB(float[] hsv) {
 		float h, s, v;
 		h = hsv[0];
 		s = hsv[1];
