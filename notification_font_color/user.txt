@@ -1,0 +1,12 @@
+1、版本5.0以下
+
+通知的背景默认系统背景, 字体颜色@style/TextAppearance.StatusBar.EventContent
+
+2、版本5.0及以上
+
+新建layout-v21, 5.0版本以后使用.
+@android:style/TextAppearance.Material.Notification.Title通知栏标题. 
+@android:style/TextAppearance.Material.Notification.Line2通知栏内容. 
+
+用法：android:textAppearance="@android:style/TextAppearance.Material.Notification.Line2"
+不是textColor
